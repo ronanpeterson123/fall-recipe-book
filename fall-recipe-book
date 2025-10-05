@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autumn's Culinary Treasures - Recipe Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+    body { font-family: 'Montserrat', sans-serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .fall-pattern {
+      background-image: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+    }
+    .recipe-card {
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .recipe-card:hover { transform: translateY(-5px); }
+  </style>
+</head>
+<body class="bg-amber-50 font-montserrat">
+  <div id="pdf-content" class="max-w-4xl mx-auto p-8">
+
+    <!-- COVER PAGE -->
+    <div class="fall-pattern bg-amber-700 bg-opacity-80 rounded-xl p-12 text-center mb-12 text-white min-h-screen flex flex-col justify-center items-center">
+      <h1 class="text-5xl md:text-6xl font-playfair font-bold mb-6 tracking-wider">Autumn's Culinary Treasures</h1>
+      <p class="text-xl md:text-2xl font-light mb-10">A Collection of 10 Nourishing Fall Dinner Recipes</p>
+      <div class="w-32 h-1 bg-amber-300 mb-10"></div>
+      <div class="flex items-center justify-center mb-8">
+        <i data-feather="leaf" class="w-12 h-12 mr-4"></i>
+        <i data-feather="coffee" class="w-12 h-12 mx-4"></i>
+        <i data-feather="pie-chart" class="w-12 h-12 ml-4"></i>
+      </div>
+      <p class="text-lg italic">"The season for enjoying the fullness of life — for harvests, for gatherings, for gratitude"</p>
+    </div>
+
+    <!-- === RECIPE 1: Harvest Chicken Skillet === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1604908176997-55515e1e47c7?auto=format&fit=crop&w=1000&q=80" alt="Harvest Chicken Skillet" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Harvest Chicken Skillet</h2>
+      <p class="text-gray-700 mb-6">A cozy one-pan dish with juicy chicken, sweet potatoes, and cranberries, glazed in maple-dijon sauce.</p>
+      <h3 class="text-xl font-playfair font-bold text-amber-700 mb-3">Ingredients</h3>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>2 chicken breasts</li>
+        <li>1 sweet potato, cubed</li>
+        <li>1 cup Brussels sprouts, halved</li>
+        <li>¼ cup cranberries</li>
+        <li>2 tbsp maple syrup</li>
+        <li>1 tbsp Dijon mustard</li>
+        <li>1 tbsp olive oil</li>
+      </ul>
+      <h3 class="text-xl font-playfair font-bold text-amber-700 mb-3">Instructions</h3>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Season and sear chicken in olive oil until golden; remove from pan.</li>
+        <li>Add vegetables; sauté 8 minutes until tender.</li>
+        <li>Stir in maple syrup and Dijon, then return chicken to pan and glaze for 5 minutes.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 2 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1603133872878-684f7d2b47a3?auto=format&fit=crop&w=1000&q=80" alt="Butternut Squash & Kale Risotto" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Butternut Squash & Kale Risotto</h2>
+      <p class="text-gray-700 mb-6">Creamy, comforting risotto featuring roasted squash and tender kale — perfect for chilly evenings.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>1 cup arborio rice</li>
+        <li>2 cups roasted butternut squash cubes</li>
+        <li>2 cups vegetable broth</li>
+        <li>1 cup chopped kale</li>
+        <li>½ onion, minced</li>
+        <li>1 tbsp butter</li>
+        <li>2 tbsp Parmesan cheese</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Sauté onion in butter, add rice, and toast for 1 min.</li>
+        <li>Gradually add broth until creamy, stirring constantly.</li>
+        <li>Fold in squash, kale, and Parmesan before serving.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 3 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1605478544300-5934d2b6d56f?auto=format&fit=crop&w=1000&q=80" alt="Turkey & Quinoa Stuffed Peppers" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Turkey & Quinoa Stuffed Peppers</h2>
+      <p class="text-gray-700 mb-6">Colorful bell peppers filled with lean turkey, quinoa, and veggies for a wholesome dinner.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>4 bell peppers</li>
+        <li>1 cup cooked quinoa</li>
+        <li>½ lb ground turkey</li>
+        <li>1 tomato, diced</li>
+        <li>½ onion, diced</li>
+        <li>½ cup cheese</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Cook turkey with onions; add tomato and quinoa.</li>
+        <li>Stuff peppers, sprinkle cheese, and bake 25 min at 375°F.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 4 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80" alt="Apple Cider Glazed Salmon" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Apple Cider Glazed Salmon</h2>
+      <p class="text-gray-700 mb-6">Sweet and tangy glazed salmon paired with roasted carrots — autumn elegance on a plate.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>2 salmon fillets</li>
+        <li>½ cup apple cider</li>
+        <li>1 tbsp soy sauce</li>
+        <li>1 tbsp maple syrup</li>
+        <li>1 tsp Dijon mustard</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Simmer cider, maple syrup, soy, and Dijon until thick.</li>
+        <li>Brush over salmon and bake 15 min at 400°F.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 5 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1603133872878-684f7d2b47a3?auto=format&fit=crop&w=1000&q=80" alt="Lentil & Sweet Potato Shepherd’s Pie" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Lentil & Sweet Potato Shepherd’s Pie</h2>
+      <p class="text-gray-700 mb-6">A vegetarian comfort dish layered with lentils and creamy mashed sweet potatoes.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>1 cup cooked lentils</li>
+        <li>1 carrot, diced</li>
+        <li>1 cup mashed sweet potato</li>
+        <li>1 tsp thyme</li>
+        <li>½ onion, diced</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Sauté onion and carrot; add lentils and thyme.</li>
+        <li>Top with mashed sweet potato; bake 20 min at 375°F.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 6 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=80" alt="Maple Dijon Roasted Pork Tenderloin" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Maple Dijon Roasted Pork Tenderloin</h2>
+      <p class="text-gray-700 mb-6">Tender, juicy pork brushed with a maple-Dijon glaze and roasted with apples and parsnips.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>1 pork tenderloin</li>
+        <li>2 tbsp maple syrup</li>
+        <li>1 tbsp Dijon mustard</li>
+        <li>1 apple, sliced</li>
+        <li>1 parsnip, chopped</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Whisk maple syrup and Dijon; brush over pork.</li>
+        <li>Roast with apples and parsnips at 400°F for 25 min.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 7 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1601050690597-5a2d63c6f0a6?auto=format&fit=crop&w=1000&q=80" alt="Pumpkin Alfredo Pasta with Spinach" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Pumpkin Alfredo Pasta with Spinach</h2>
+      <p class="text-gray-700 mb-6">Creamy pumpkin Alfredo sauce tossed with whole-wheat pasta and fresh spinach.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>2 cups whole-wheat pasta</li>
+        <li>½ cup pumpkin puree</li>
+        <li>½ cup milk</li>
+        <li>1 tbsp Parmesan</li>
+        <li>1 cup baby spinach</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Cook pasta; reserve ¼ cup water.</li>
+        <li>Simmer pumpkin, milk, and Parmesan into a sauce.</li>
+        <li>Toss with pasta and spinach until creamy.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 8 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1601050690597-5a2d63c6f0a6?auto=format&fit=crop&w=1000&q=80" alt="Stuffed Acorn Squash with Wild Rice & Cranberries" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Stuffed Acorn Squash with Wild Rice & Cranberries</h2>
+      <p class="text-gray-700 mb-6">Beautiful roasted acorn squash filled with nutty wild rice, cranberries, and pecans.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>2 acorn squash, halved</li>
+        <li>1 cup cooked wild rice</li>
+        <li>¼ cup cranberries</li>
+        <li>¼ cup chopped pecans</li>
+        <li>1 tbsp maple syrup</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Roast squash halves 30 min at 400°F.</li>
+        <li>Mix filling ingredients; spoon into squash and bake 10 more min.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 9 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1603133872878-684f7d2b47a3?auto=format&fit=crop&w=1000&q=80" alt="Autumn Veggie Chili" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Autumn Veggie Chili</h2>
+      <p class="text-gray-700 mb-6">A hearty vegetarian chili with pumpkin puree, beans, and smoky spices for cozy warmth.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>1 can beans</li>
+        <li>1 cup pumpkin puree</li>
+        <li>1 bell pepper, chopped</li>
+        <li>1 onion, diced</li>
+        <li>1 tsp chili powder</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Sauté onions and peppers; add beans and pumpkin.</li>
+        <li>Season and simmer 20 minutes.</li>
+      </ol>
+    </div>
+
+    <!-- === RECIPE 10 === -->
+    <div class="bg-white rounded-xl p-8 mb-12 recipe-card">
+      <img src="https://images.unsplash.com/photo-1605478544300-5934d2b6d56f?auto=format&fit=crop&w=1000&q=80" alt="Rosemary Chicken & Root Vegetable Bake" class="rounded-lg mb-6 shadow-md w-full h-64 object-cover">
+      <h2 class="text-3xl font-playfair font-bold text-amber-800 mb-4">Rosemary Chicken & Root Vegetable Bake</h2>
+      <p class="text-gray-700 mb-6">Rustic sheet-pan dinner with chicken thighs, carrots, and potatoes — simple, hearty, and flavorful.</p>
+      <ul class="list-disc list-inside mb-6 text-gray-700">
+        <li>4 chicken thighs</li>
+        <li>2 carrots, sliced</li>
+        <li>2 potatoes, cubed</li>
+        <li>2 tbsp olive oil</li>
+        <li>1 tsp rosemary</li>
+      </ul>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Toss all ingredients on a pan; season with salt and rosemary.</li>
+        <li>Roast 35–40 min at 400°F until golden and crisp.</li>
+      </ol>
+    </div>
+
+    <!-- === DOWNLOAD BUTTON === -->
+    <div class="text-center mb-12">
+      <button id="download-btn" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 flex items-center mx
